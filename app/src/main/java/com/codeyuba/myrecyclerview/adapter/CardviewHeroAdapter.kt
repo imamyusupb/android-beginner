@@ -34,7 +34,7 @@ class CardviewHeroAdapter(var list: ArrayList<HeroesModel>) :
         holder.btnFavorite.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Favorite" + list[position].name,
+                "Favorite " + list[position].name,
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -42,7 +42,7 @@ class CardviewHeroAdapter(var list: ArrayList<HeroesModel>) :
         holder.btnShare.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Share" + list[position].name,
+                "Share " + list[position].name,
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -50,7 +50,7 @@ class CardviewHeroAdapter(var list: ArrayList<HeroesModel>) :
         holder.itemView.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Share" + list[position].name,
+                "you has clicked " + list[position].name,
                 Toast.LENGTH_LONG
             ).show()
         }

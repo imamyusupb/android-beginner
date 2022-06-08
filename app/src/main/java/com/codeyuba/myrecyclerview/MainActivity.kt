@@ -17,13 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var rvHeroes: RecyclerView
     private var list: ArrayList<HeroesModel> = arrayListOf()
-    var titles = "default"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       setActionBarTitle(titles)
         rvHeroes = findViewById(R.id.rvHeroes)
         rvHeroes.setHasFixedSize(true)
 
@@ -46,15 +44,15 @@ class MainActivity : AppCompatActivity() {
     private fun setMode(selectedMenu: Int) {
         when (selectedMenu) {
             R.id.action_list -> {
-                titles = "List Hero"
+                supportActionBar?.title = "List Hero"
                 showRecyclerList()
             }
             R.id.action_grid -> {
-                titles= "Grid Hero"
+                supportActionBar?.title = "Grid Hero"
                 showRecyclerGrid()
             }
             R.id.action_cardview -> {
-                titles = "Card Hero"
+                supportActionBar?.title = "Card Hero"
                 showRecyclerCard()
             }
         }
