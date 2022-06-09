@@ -14,6 +14,13 @@ import com.codeyuba.myrecyclerview.R
 class ListHeroAdapter(private var listHero: ArrayList<HeroesModel>) :
     RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+
+    fun setOnItemClickCallback(onItemClickCallBack: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallBack
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -33,6 +40,8 @@ class ListHeroAdapter(private var listHero: ArrayList<HeroesModel>) :
 
         holder.tvName.text = hero.name
         holder.tvDetail.text = hero.detail
+
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listHero[holder.adapterPosition]) }
     }
 
 
@@ -46,4 +55,9 @@ class ListHeroAdapter(private var listHero: ArrayList<HeroesModel>) :
     override fun getItemCount(): Int {
         return listHero.size
     }
+    interface OnItemClickCallback {
+        fun onItemClicked(data:HeroesModel)
+    }
+
 }
+

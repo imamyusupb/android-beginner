@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun showSelectedHero(hero:HeroesModel){
+        Toast.makeText(this,"Kamu memilih " + hero.name, Toast.LENGTH_LONG).show()
+    }
+
     private fun setMode(selectedMenu: Int) {
         when (selectedMenu) {
             R.id.action_list -> {
@@ -67,12 +72,23 @@ class MainActivity : AppCompatActivity() {
         val listHeroAdapter = ListHeroAdapter(list)
         rvHeroes.adapter = listHeroAdapter
 
+        listHeroAdapter.setOnItemClickCallback(object :ListHeroAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: HeroesModel) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showRecyclerGrid() {
         rvHeroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
         rvHeroes.adapter = gridHeroAdapter
+
+        gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback2 {
+            override fun onItemClicked(data: HeroesModel) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showRecyclerCard() {

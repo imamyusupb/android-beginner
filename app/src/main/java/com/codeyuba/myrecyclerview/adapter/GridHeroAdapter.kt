@@ -13,6 +13,19 @@ import com.codeyuba.myrecyclerview.model.HeroesModel
 
 class GridHeroAdapter(private var list :ArrayList<HeroesModel>):RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback2
+
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback2) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+
+    interface OnItemClickCallback2 {
+        fun onItemClicked(data:HeroesModel)
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_grid_heroes,parent,false)
         return GridViewHolder(view)
@@ -23,7 +36,10 @@ class GridHeroAdapter(private var list :ArrayList<HeroesModel>):RecyclerView.Ada
             .load(list[position].photo)
             .apply(RequestOptions().override(350,550))
             .into(holder.imgPhoto)
+
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(list[holder.adapterPosition]) }
     }
+
 
     override fun getItemCount(): Int {
      return  list.size
