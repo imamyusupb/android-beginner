@@ -66,6 +66,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv1">
 
 
@@ -87,27 +91,32 @@
             <TableLayout
                 android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView">
 
                 <TableRow
-                    android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+
                     android:layout_marginBottom="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Nama"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/tvDetailName"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
                         android:text="Honda Beat"
                         android:textSize="14sp" />
                 </TableRow>
@@ -121,13 +130,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Series"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tvDetailSeries"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
                         android:text="Beat"
                         android:textSize="14sp" />
                 </TableRow>
@@ -141,13 +152,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Bahan Bakar"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tvDetailFuel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
                         android:text="4.5"
                         android:textSize="14sp" />
                 </TableRow>
@@ -161,13 +174,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Mesin"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tvDetailMachine"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
                         android:text="4 Steps"
                         android:textSize="14sp" />
                 </TableRow>
@@ -181,13 +196,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Transmisi"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tvDetailTransmision"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
+
                         android:text="Otomatis"
                         android:textSize="14sp" />
                 </TableRow>
@@ -201,14 +219,48 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
                         android:text="Tipe Kopling"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tvDetailCopling"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0"
                         android:text="Matic"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+
+                        android:text="Deskripsi Produk"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvDetailDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="28dp"
+                        android:layout_weight="1"
+                        android:text="Bla Bla blaaa"
                         android:textSize="14sp" />
                 </TableRow>
             </TableLayout>

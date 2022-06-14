@@ -27,21 +27,29 @@ class MotorAdapter(var list: ArrayList<Motor>) :
     }
 
     override fun onBindViewHolder(holder: MotorAdapter.MotorViewHolder, position: Int) {
-        val (name,photo,series,fuel,machine,transmision,copling,description)= list[position]
+        val motor = list[position]
 
         Glide.with(holder.itemView.context)
-            .load(photo)
+            .load(motor.photo)
             .apply(RequestOptions())
             .into(holder.imgMotor)
 
-        holder.tvName.text = name
-        holder.tvDesciprtion.text = description
+        holder.tvName.text = motor.name
+        holder.tvDesciprtion.text = motor.description
 
         val mcontext =  holder.itemView.context
         holder.itemView.setOnClickListener {
             val intentDetail = Intent(mcontext,MotorDetailActivity::class.java)
-            intentDetail.putExtra(MotorDetailActivity.EXTRA_NAME,name)
-            intentDetail.putExtra(MotorDetailActivity.EXTRA_PHOTO,photo)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_NAME,motor.name)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_PHOTO,motor.photo)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_DESCRIPTION,motor.description)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_FUEL,motor.fuel)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_MACHINE,motor.machine)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_TRANSMISION,motor.transmision)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_SERIES,motor.series)
+            intentDetail.putExtra(MotorDetailActivity.EXTRA_COPLING,motor.coplingType)
+
+
             mcontext.startActivity(intentDetail)
         }
     }
@@ -57,3 +65,4 @@ class MotorAdapter(var list: ArrayList<Motor>) :
 
     }
 }
+
